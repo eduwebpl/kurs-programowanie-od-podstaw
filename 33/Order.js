@@ -1,3 +1,5 @@
+const moment = require("moment");
+
 class Order {
     constructor(nr, date) {
         this.nr = nr;
@@ -20,11 +22,9 @@ class Order {
     }
 
     getDate() {
-        const day = this.date.getDate();
-        const month = this.date.getMonth() + 1;
-        const year = this.date.getFullYear();
+       const date = moment(this.date);
 
-        return `${day}.${month}.${year}`;
+       return date.format("DD.MM.YYYY");
     }
 
     getInfo() {
