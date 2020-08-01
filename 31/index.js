@@ -1,13 +1,17 @@
 const db = {
-    search: function() {
-        console.log("Szukam w bazie danych");
+    search: function(query) {
+        console.log(`Szukam w bazie danych frazy: ${query}`);
     }
 };
 
-function searchDb() {
+function searchDb(query) {
+    if(!query) {
+        throw new Error("Nie podano frazy wyszukiwania!");
+    }
+
     console.log("Otwieram połączenie");
 
-    db.search();
+    db.search(query);
 
     console.log("Zamykam połączenie");
 }
